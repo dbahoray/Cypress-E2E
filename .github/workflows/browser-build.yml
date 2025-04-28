@@ -1,14 +1,11 @@
-name: Browser Test Build
+name: Browser Build Test
 on: push
 jobs:
-  cypress-run:
+  chrome:
     runs-on: ubuntu-24.04
+    name: E2E on Chrome
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - uses: actions/checkout@v4
+      - uses: cypress-io/github-action@v6
         with:
-        browser: firefox
+          browser: chrome
